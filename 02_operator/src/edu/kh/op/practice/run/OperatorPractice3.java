@@ -1,5 +1,7 @@
 package edu.kh.op.practice.run;
 
+import java.util.Scanner;
+
 public class OperatorPractice3 {
 	public void practice1() {
 		/*
@@ -18,5 +20,30 @@ public class OperatorPractice3 {
 		 * ex) 사용자가 123000원을 입력하면,
 		 * 5만원 지폐 2장, 1만원 지폐 2장, 5천원 지폐 0장, 1천원 지폐 3장이 필요함
 		 * */
+		
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("출금할 금액 입력 : ");
+			int amount = sc.nextInt();
+			
+			int fiftyThousand = amount / 50000;
+			amount %= 50000;
+			
+			int tenThousand = amount / 10000;
+			amount %= 10000;
+			
+			int fiveThousand = amount / 5000;
+			amount %= 5000;
+			
+			
+			int oneThousand = amount / 1000;
+			
+			System.out.println("50000원 : " + fiftyThousand );
+			System.out.println("10000원 : " + tenThousand );
+			System.out.println("5000원 : " + fiveThousand );
+			System.out.println("1000원 : " + oneThousand );
+			
+			
+		}
 	}
-}
+

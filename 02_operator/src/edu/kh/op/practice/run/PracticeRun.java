@@ -8,12 +8,14 @@ public class PracticeRun {
 		OperatorPractice op = new OperatorPractice();
 		
 		//op.practice1();
-		op.practice2();
+		//op.practice2();
 		//op.practice3();
 		//op.practice4();
 		
-		//op.practice1();
 		
+		OperatorPractice3 op3 = new OperatorPractice3();
+		
+		//op.practice1();
 	}
 
 }

@@ -105,6 +105,7 @@ public class OperatorPractice { //
 		System.out.println( (input10 >= 65) || (input10 <= 12) );  
 	}
 
+
 }
 
 
