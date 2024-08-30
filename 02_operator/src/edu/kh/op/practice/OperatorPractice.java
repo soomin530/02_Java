@@ -47,8 +47,11 @@ public class OperatorPractice { //
 		System.out.println("번호 : ");
 		int input4 = sc.nextInt();
 		
+		// nextLine();을 쓴다면 nextInt(); 다음에 sc.nextLine(); 입력
+		// sc.nextLine(); : 버퍼 비우는 일 (개행문자 비우기)
+		
 		System.out.println("성별 : ");
-		String input5 = sc.next();
+		String input5 = sc.next();      // nextInt(); 후에 nextLine(); 하면 성별, 성적이 같이 나옴
 		
 		System.out.println("성적 : ");
 		double input6 = sc.nextDouble();
