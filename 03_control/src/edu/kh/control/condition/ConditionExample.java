@@ -14,15 +14,15 @@ public class ConditionExample { // 기능 제공용 클래스
 		// 입력받은 정수가 양수인지 검사
 		// 양수라면 "양수입니다" 출력
 		
-		System.out.println("정수 입력 : ");
+		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		
 		if(input > 0) {
-			System.out.println("양수입니다.");
+			System.out.print("양수입니다.");
 		} 
 		
 		if(input <= 0)
-			System.out.println("양수가 아닙니다.");
+			System.out.print("양수가 아닙니다.");
 		}
 
 	public void ex2() {
@@ -104,7 +104,7 @@ public class ConditionExample { // 기능 제공용 클래스
 						//  "겨울" + "한파 경보"					
 				
 			} else if(temperature <= -12) {
-				season += " 한파 주의보"; // 겨울 한파 주의보
+				season += " 한파 주의보"; // "겨울 한파 주의보"
 			}
 			
 		} else if(month >=3 && month <= 5) {
@@ -192,6 +192,8 @@ public class ConditionExample { // 기능 제공용 클래스
 		// 키가 140.0cm 미만 : "적정 키가 아닙니다."
 		// 나이를 0세 미만, 100세 초과 시 : "잘못 입력 하셨습니다."
 		
+		
+		// 내 풀이
 		System.out.println("나이 입력 : ");
 		int age = sc.nextInt();
 		
@@ -216,10 +218,34 @@ public class ConditionExample { // 기능 제공용 클래스
 		} else if(stature >= 140) {
 			System.out.println("탑승 가능");
 				
+		}	
+		
+		// 강사님 풀이
+		System.out.println("나이 입력 : ");
+		int age2 = sc.nextInt();
+		
+		String result;
+		
+		if(age2 < 0 || age2 > 100) {
+			result = "잘못 입력하셨습니다.";
+		} else { // 나이를 잘 입력한 경우 0 ~ 100 사이
+			
+			System.out.print("키 입력 : ");
+			double height = sc.nextDouble();
+			
+			if(age < 12) {
+				result = "적정 연령이 아닙니다.";
+			} else if(height < 140.0) {
+				result = "적정 키가 아닙니다.";
+			} else {
+				result = "탑승 가능";
+			}
+
 		}
+		
+		System.out.println(result);
 	}
 			
-
 	public void ex8() {
 		// 놀이기구 탑승 제한 검사 프로그램
 		// 조건 - 나이 : 12세 이상
@@ -232,6 +258,8 @@ public class ConditionExample { // 기능 제공용 클래스
 		// 나이 X , 키 X : "나이와 키 모두 적절치 않음";
 		// 나이 O , 키 O : "탑승 가능"
 		
+		
+		// 내 풀이
 		System.out.println("나이 입력 : ");
 		int age = sc.nextInt();
 		
@@ -260,6 +288,41 @@ public class ConditionExample { // 기능 제공용 클래스
 		} else if(age >= 12 || height < 140) {
 			System.out.println("나이는 적절하나, 키는 적절치 않음"); return;
 		} 
+		
+		
+		// 강사님 풀이
+		System.out.println("나이 입력 : ");
+		int age1 = sc.nextInt();
+		
+		String result;
+		
+		if(age1 < 0 || age1 > 100) {
+			result = "나이를 잘못 입력했어요..";
+			
+		} else { // 0 ~ 100 잘 입력한 경우
+			System.out.println("키 입력 : ");
+			double height1 = sc.nextDouble();
+			
+			if(height1 < 0 || height1 > 250) {
+				result = "키를 잘못 입력했어요..";
+				
+			} else { // 0 ~ 250 잘 입력한 경우
+				if(age1 < 12 && height1 >= 140.0) { // 나이 X, 키 O
+					result = "키는 적절하나, 나이가 적절치 않음";
+					
+				} else if (age1 >= 12 && height1 < 140.0) { // 나이 O, 키 X
+					result = "나이는 적절하나, 키가 적절치 않음";
+					
+				} else if(age1 < 12 && height1 < 140.0) { // 나이 X, 키 X
+					result = "나이와 키 모두 적절치 않음";
+							
+				} else { // 나이 O, 키 O
+					result = "탑승 가능";
+				}
+			}
+			
+			
+		}
 	}
 }
 

@@ -12,9 +12,17 @@ public class OperatorPractice { //
 		Scanner sc = new Scanner(System.in);
 	
 		System.out.println("인원 수 : ");
-		System.out.println("사탕 개수 : ");
+		int people = sc.nextInt();
 		
-		int input = sc.nextInt();
+		System.out.println("사탕 개수 : ");
+		int candy = sc.nextInt();
+		
+		System.out.println();
+		
+		System.out.println("1인당 사탕 개수 : " + candy / people);
+		System.out.println("남은 사탕 개수 : " + candy % people);
+		
+		
 		
 		// String result = input
 		
@@ -56,7 +64,7 @@ public class OperatorPractice { //
 		System.out.println("성적 : ");
 		double input6 = sc.nextDouble();
 
-		System.out.printf("%d" + "학년 "+  "%d" + "반 " + "%d" + "번 " +"%s %s" +"의 성적은" + " %.2f" + "이다.\n", input2, input3, input4, input1, input2, input6);
+		System.out.printf("%d학년 %d반 %d번 %s %s의 성적은 %.2f이다.\n", input2, input3, input4, input1, input5, input6);
 		
 		
 		
@@ -66,6 +74,8 @@ public class OperatorPractice { //
 		/*
 		 * 국어, 영어, 수학에 대한 점수를 키보드를 이용해 정수로 입력 받고,
 		 * 세 과목에 대한 합계(국어+영어+수학)와 평균(합계/3.0)을 구하세요.
+		 * 세 과목의 점수가 각각 40점 이상이면서 평균이 60점 이상일때 합격
+		 * 아니면 불합격을 출력해라
 		 * */
 		
 		Scanner sc = new Scanner(System.in);
@@ -79,7 +89,15 @@ public class OperatorPractice { //
 		System.out.println("수학 : ");
 		int input9 = sc.nextInt();
 		
-		System.out.printf("d% + d% + d%\n", input7 + input8 + input9);
+		int num = input7 + input8 + input9;
+		// 평균 저장할 변수도 만들어주면 좋다.
+		
+		System.out.printf("합계: %d / ", num); // 합계
+		System.out.printf("평균: %.1f / ", num / 3.0); // 평균
+		// System.out.printf(" %d / %.1f ", num, num/3.0); -> 이렇게 한 줄에 적어도 됨
+		
+		boolean result = (input7 >= 40) && (input8 >= 40) && (input9 >= 40) && (num / 3.0 >= 60);
+		System.out.println(result ? "합격~!!" : "불합격..");
 	}
 
 	public void practice4() {
@@ -103,6 +121,8 @@ public class OperatorPractice { //
 		
 		System.out.println("청소년 입니까 ? ");
 		System.out.println( (input10 >= 13) && (input10 <= 19) );  
+		
+		System.out.println();
 		
 		System.out.println("노인이거나 어린이 입니까 ? ");
 		System.out.println( (input10 >= 65) || (input10 <= 12) );  

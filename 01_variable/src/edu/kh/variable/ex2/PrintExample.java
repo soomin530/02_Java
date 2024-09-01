@@ -54,7 +54,7 @@ public class PrintExample {
 		
 		// 소수점 자리 제어 (반올림 처리)
 		System.out.printf("%f\n", 10 / 4.0); // 2.500000
-		System.out.printf("%.2f\n", 10 / 4.0); // 소수점 둘째 자리까지만 나타내고 싶다 ~!
+		System.out.printf("%.2f\n", 10 / 4.0); // 소수점 둘 째 자리까지만 나타내고 싶다 ~!
 		System.out.printf("%.0f\n", 10 / 4.0); // // 소수점 아래를 표현하지 않겠다 !
 		
 		// 문자, 문자열, boolean

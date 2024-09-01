@@ -6,7 +6,7 @@ public class OpExample { // 예제 코드 작성용 클래스
 
 	// ex1() method : 객체 지향 프로그래밍에서 OpExample 객체와 관련된 함수
 	// -> OpExample이 가지고 있는 기능 중 ex1() 이라는 기능
-	public void ex1() {
+	public void ex1() { // <- 이게 메서드 !
 		// 증감(증가, 감소) 연산자 : ++, --
 		
 		int iNum1 = 10;
@@ -61,7 +61,7 @@ public class OpExample { // 예제 코드 작성용 클래스
 		
 		System.out.println((++c != d) == (--c != d)); // false
 		//                  ++4(5) != 5 -> false
-		//                        --5(4) != 5 -> true
+		//                              --5(4) != 5 -> true
 		//                    false == true
 		//                   --> false
 		
