@@ -81,7 +81,7 @@ public class ForExample { // 기능 제공용 클래스
 				System.out.print("(" + i + ")" );
 				
 			} else { // 배수가 아닐 때
-				System.out.print(i + "" );
+				System.out.print(i + " ");
 				
 			}
 		}	
@@ -143,7 +143,7 @@ public class ForExample { // 기능 제공용 클래스
 		// 9단 -> 2단까지 역방향
 		// 곱해지는 수는 1 -> 9까지 정방향
 		
-		for(int dan = 9; dan >= 2; dan--) {
+		for(int dan = 9; dan >= 2; dan--) { // 단 9 -> 2 역
 			
 			for(int num = 1; num <= 9; num++) { // 각 단에 곱해질 수 1 ~ 9까지 증가
 				System.out.printf("%d X %d = %2d  ", dan, num, dan * num);		
@@ -168,7 +168,7 @@ public class ForExample { // 기능 제공용 클래스
 		
 		int count = 0; //n의 배수 개수를 세기 위한 변수
 		int sum = 0; // n의 배수의 합계를 구하기 위한 변수
-		String result = "";
+		String result = ""; // 3의 배수 누적해서 나란히 나열
 		
 		System.out.print("배수 입력 : ");
 		int input = sc.nextInt();

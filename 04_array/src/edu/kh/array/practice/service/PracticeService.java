@@ -49,10 +49,12 @@ public class PracticeService {
 
 		int[] arr = new int[9];
 		int sum = 0;
-
-		for (int i = arr.length; i > 0; i--) {
-			arr[i] = i - 1;
-
+		// 9 8 7 6 5 4 3 2 1
+		// 0 1 2 3 4 5 6 7 8 
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = arr.length - i;
+					// 9
+			
 			if (i % 2 != 0) {
 				sum += arr[i];
 			}
@@ -88,7 +90,7 @@ public class PracticeService {
 		/*
 		 * 정수 5개를 입력 받아 배열을 초기화 하고
 		 * 검색할 정수를 하나 입력 받아 배열에서 같은 수가 있는 인덱스를 찾아 출력.
-		 * 배열에 같은 수가 없을 경우 “일치하는 값이 존재하지 않습니다“ 출력
+		 * 배열에 같은 수가 없을 경우 "일치하는 값이 존재하지 않습니다" 출력
 		 * 
 		 * [실행 화면 1]
 		 * 입력 0 : 5
@@ -113,11 +115,27 @@ public class PracticeService {
 		int[] arr = new int[5];
 
 		Scanner sc = new Scanner(System.in);
-		int input = sc.nextInt();
 
 		for (int i = 0; i < arr.length; i++) {
-			System.out.println("입력" + i + ":" + input);
+			System.out.print("입력" + i + ":");
+			arr[i] = sc.nextInt();
 		}
+		
+		System.out.print("검색할 값 : ");
+		int search = sc.nextInt();
+		
+		boolean flag = false;
+		
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i] == search) {
+				flag = true;
+				System.out.println("인덱스 : " + i);
+				return;
+			}
+		}
+		
+		 System.out.println("일치하는 값이 존재하지 않습니다.");
+		
 	}
 
 	public void practice5() {
@@ -144,8 +162,6 @@ public class PracticeService {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = input.charAt(i); // 각 index에 있는 문자를 문자형으로 반환?
 		}
-
-		System.out.println(Arrays.toString(arr));
 
 		System.out.print("문자 : ");
 		char ch = sc.next().charAt(0); // String의 0번째 인덱스 문자 하나를 추출해서 char 형태로 반환
@@ -211,7 +227,15 @@ public class PracticeService {
 
 		Scanner sc = new Scanner(System.in);
 		System.out.print("주민등록번호(-포함) : ");
-		int num = sc.nextInt();
+		String num = sc.next();
+		
+		for(int i =0; i < num.length(); i++) {
+			if(i <= 7) {
+				System.out.print(num.charAt(i));
+			} else {
+				System.out.print("*");
+			}
+		}
 	}
 
 	public void practice8() {
@@ -231,18 +255,35 @@ public class PracticeService {
 		 */
 
 		Scanner sc = new Scanner(System.in);
-		System.out.print("정수 : ");
-		int input = sc.nextInt();
+		
+		while(true) {
 
-		int[] num = new int[input];
-
-		if (input % 2 == 0 || input < 3) { // 잘못 입력한 경우
-			System.out.println("다시 입력하세요");
-
-		} else { // 잘 입력한 경우
-			for (int i = 0; i < num.length; i++) {
-
+			System.out.print("정수 : ");
+			int input = sc.nextInt();
+			
+			int[] num = new int[input];
+			
+			if (input % 2 == 0 || input < 3) { // 잘못 입력한 경우
+				System.out.println("다시 입력하세요");
+				
+			} else { // 잘 입력한 경우
+				int count = 0;
+				for (int i = 0; i < num.length; i++) {
+					
+					if(i <= input / 2) { //  입력된 값 배열 중간 이하까지
+						count++;
+					} else { // 입력된 값 배열 중간 초과
+						count--;
+					}
+					
+					num[i] = count;
+					
+				}
+				
+				System.out.println(Arrays.toString(num));
+				break;
 			}
+			
 		}
 
 	}
@@ -414,18 +455,12 @@ public class PracticeService {
 
 		System.out.println(Arrays.toString(arr));
 
-		System.out.print("문자 : ");
-		char ch = sc.next().charAt(0); // String의 0번째 인덱스 문자 하나를 추출해서 char 형태로 반환
-		System.out.println(input + "에 있는 문자 " + ch + "가 존재하는 위치(인덱스) : ");
-
 		int count = 0;
 		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] == ch) {
-				count++;
-			}
+			input = ; // input에 입력된 값 문자 개수를  count에 넣기
 		}
 
-		System.out.println(ch + "개수 : " + count);
+		System.out.println("문자 개수 : " + count);
 	}
 
 	public void practice14() {
@@ -452,5 +487,12 @@ public class PracticeService {
 		 * [자바의 정석, 알고리즘, C프로그래밍, 인간관계, 자기계발, 영단어600]
 		 * 
 		 */
+		
+		int[] arr = // 배열 길이 입력 받기
+				// 배열 인덱스에 넣을 값도 입력 받기
+				// 배열에 값을 더 넣을 건지 물어보는 프린트 출력 ? ( 더 입력 원하면 Y, 입력 원하지 않으면 N)
+				// 몇 개 넣을 건지도 물어보기 (정수형?)
+				// 늘린 곳에 어떤 데이터 넣을 건지 묻고 문자열 입력받기
+				// N 입력했을 때 지금까지 입력된 문자열 print 형식으로 출력
 	}
 }

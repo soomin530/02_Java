@@ -148,7 +148,7 @@ public class LoopPractice {
 		int num = sc.nextInt();
 	
 		for(int row = 1; row <= num; row++) {
-			for(int col = 1; col <= row; col++) {
+			for(int col = 1; col <= row; col++) { // col이 row 만큼 ( col <= row)
 				System.out.print("*");
 			}
 			
@@ -180,7 +180,7 @@ public class LoopPractice {
 		System.out.print("정수 입력 : ");
 		int num = sc.nextInt();
 		
-		for(int row = num; row <= 1; row--) {
+		for(int row = num; row >= 1; row--) {
 			// 내가 입력한 input 값을 row 에 대입하며 반복할 때마다 1씩 감소
 			// 4 3 2 1
 			for(int col = 1; col <= row; col++ ) {

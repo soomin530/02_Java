@@ -8,16 +8,16 @@ public class PracticeRun {
 		PracticeService ps = new PracticeService();
 		
 		// ps.practice1(); O
-		// ps.practice2(); // X
+		// ps.practice2(); O
 		// ps.practice3(); O
-		// ps.practice4(); // X
-		 ps.practice5(); 
+		// ps.practice4(); O
+		// ps.practice5(); O
 		// ps.practice6(); O
-		// ps.practice7(); // X
-		// ps.practice8(); // X
-		// ps.practice9();  O
+		// ps.practice7(); O
+		// ps.practice8(); O
+		// ps.practice9(); O
 		// ps.practice10(); O
-		// ps.practice11(); // ?
+		ps.practice11(); // ?
 		// ps.practice12(); // ?
 		// ps.practice13();  
 		// ps.practice14();  
