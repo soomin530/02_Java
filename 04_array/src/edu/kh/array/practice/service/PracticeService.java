@@ -80,6 +80,7 @@ public class PracticeService {
 		System.out.print("양의 정수 : ");
 		int input = sc.nextInt();
 		int[] arr = new int[input];
+		// int[] arr = new int[sc.nextInt()] 라고 한 줄에 써도 됨 !
 
 		for (int i = 1; i < arr.length + 1; i++) {
 			System.out.print(i + " ");
@@ -141,8 +142,7 @@ public class PracticeService {
 	public void practice5() {
 		/*
 		 * 문자열을 입력 받아 문자 하나하나를 배열에 넣고 검색할 문자가 문자열에 몇 개 들어가 있는지
-		 * 개수와 몇 번째 인덱스에 위치하는지 인덱스를
-		 * 출력하세요.
+		 * 개수와 몇 번째 인덱스에 위치하는지 인덱스를 출력하세요.
 		 * 
 		 * [실행 화면]
 		 * 문자열 : application
@@ -160,20 +160,24 @@ public class PracticeService {
 		char[] arr = new char[input.length()]; // 내가 입력한 문자 길이 수만큼 배열 만듦
 
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = input.charAt(i); // 각 index에 있는 문자를 문자형으로 반환?
+			arr[i] = input.charAt(i); 
+			// 내가 입력한 문자열의 문자 하나하나를 char 배열에 넣기
 		}
 
 		System.out.print("문자 : ");
 		char ch = sc.next().charAt(0); // String의 0번째 인덱스 문자 하나를 추출해서 char 형태로 반환
-		System.out.println(input + "에 " + ch + "가 존재하는 위치(인덱스) : ");
-
+		
 		int count = 0;
-		for (int i = 0; i < arr.length; i++) {
+		System.out.print(input + "에 " + ch + "가 존재하는 위치(인덱스) : ");
+
+		for (int i = 0; i < arr.length; i++) { // 해당 인덱스 값이 검색될 문자와 같을 경우
 			if (arr[i] == ch) {
+				System.out.print(i + " ");
 				count++;
 			}
 		}
 
+		System.out.println();
 		System.out.println(ch + "개수 : " + count);
 	}
 
@@ -203,8 +207,9 @@ public class PracticeService {
 
 		int sum = 0;
 
+		// 배열 크기만큼 사용자가 직접 값을 입력하여 각각의 인덱스 값 초기화
 		String result = "";
-		for (int i = 0; i < num.length; i++) {
+		for (int i = 0; i < num.length; i++) { 
 			System.out.print("배열 " + i + "번째 인덱스에 넣을 값 : ");
 			num[i] = sc.nextInt();
 			sum += num[i];
@@ -256,7 +261,7 @@ public class PracticeService {
 
 		Scanner sc = new Scanner(System.in);
 		
-		while(true) {
+		while(true) { // 탈출조건(3이상 홀수) 부합할 때까지 무한반복
 
 			System.out.print("정수 : ");
 			int input = sc.nextInt();
@@ -270,18 +275,26 @@ public class PracticeService {
 				int count = 0;
 				for (int i = 0; i < num.length; i++) {
 					
-					if(i <= input / 2) { //  입력된 값 배열 중간 이하까지
+					if(i <= input / 2) { //  입력된 값 배열 중간 이하까지 증가
 						count++;
-					} else { // 입력된 값 배열 중간 초과
+					} else { // 입력된 값 배열 중간 초과시 감소
 						count--;
 					}
 					
 					num[i] = count;
 					
-				}
+					// 각 요소 대입된 값 출력
+					// 출력 시, 추가(단, 마지막 제외)
+					if(i == num.length -1) {
+						System.out.print(num[i]);
+					} else {
+						System.out.print(num[i] + ", ");
+					}
+					
+				}	
 				
-				System.out.println(Arrays.toString(num));
-				break;
+				break; // for문 끝나고 나서 while 반복 종료
+				
 			}
 			
 		}
@@ -395,7 +408,9 @@ public class PracticeService {
 			}
 		}
 		// 결과 출력
-		System.out.println(Arrays.toString(arr));
+		for(int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");		
+		}
 	}
 
 	public void practice12() {
@@ -441,7 +456,6 @@ public class PracticeService {
 		 * 문자 개수 : 8
 		 * 
 		 */
-		
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("문자열 : ");
@@ -450,17 +464,42 @@ public class PracticeService {
 		char[] arr = new char[input.length()]; // 내가 입력한 문자 길이 수만큼 배열 만듦
 
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = input.charAt(i); // 각 index에 있는 문자를 문자형으로 반환?
+			arr[i] = input.charAt(i); 
+			// 내가 입력한 문자열의 문자 하나하나를 char 배열에 넣기
 		}
-
-		System.out.println(Arrays.toString(arr));
-
-		int count = 0;
-		for (int i = 0; i < arr.length; i++) {
-			input = ; // input에 입력된 값 문자 개수를  count에 넣기
-		}
-
+		
+		// char 배열에서 중복 값 존재할 경우 출력 X
+		int count = 0; // 문자 개수 카운트
+		
+		System.out.println("문자열에 있는 문자 : ");
+		
+		for(int i = 0; i < arr.length; i++) {
+			
+			boolean flag = true; // 중복 체크용 flag
+			for(int j = 0; j < i; j++) {
+				if(arr[i] == arr[j]) {
+					flag = false; // 중복 발생했을 때
+					break;
+				}
+			}
+			
+			if(flag) { // 중복 발생 안 한 경우
+				if(i == 0) {
+					System.out.print(arr[i]);
+					
+				} else {
+					System.out.print(", " + arr[i]);
+					
+				}
+				// 중복 아닐 때만 count 개수 늘리기
+				count++;
+			}
+		}	
+		
+		System.out.println();
 		System.out.println("문자 개수 : " + count);
+		
+		// ** 항상 오타 잘 체크하기.........**
 	}
 
 	public void practice14() {
@@ -488,11 +527,61 @@ public class PracticeService {
 		 * 
 		 */
 		
-		int[] arr = // 배열 길이 입력 받기
-				// 배열 인덱스에 넣을 값도 입력 받기
-				// 배열에 값을 더 넣을 건지 물어보는 프린트 출력 ? ( 더 입력 원하면 Y, 입력 원하지 않으면 N)
-				// 몇 개 넣을 건지도 물어보기 (정수형?)
-				// 늘린 곳에 어떤 데이터 넣을 건지 묻고 문자열 입력받기
-				// N 입력했을 때 지금까지 입력된 문자열 print 형식으로 출력
+		// 1. 첫 배열 크기 지정
+		Scanner sc = new Scanner(System.in);
+		System.out.print("배열의 크기를 입력하시오 : ");
+		int size = sc.nextInt();
+		sc.nextLine(); // 입력버퍼에 남은 개행 문자 제거
+		
+		String[] arr = new String[size]; // 사용자가 입력한 크기의 배열 만듦
+		
+		// 2. 첫 배열에 저장할 문자열 입력받기
+		for(int i = 0; i < arr.length; i++) {
+			System.out.print((i + 1) + "번째 문자열 : ");
+			arr[i] = sc.nextLine();
+			// nextInt 다음에 nextLine 쓰게 되면 nextInt 입력 후 엔터 쳤을 때
+			// nextLine이 그걸 읽기 때문에 nextInt 밑에 nextLine 써서 입력버퍼에 남은 개행 문자 제거해주기
+		}
+		
+		// 3. 반복이 시작되는 구간부터 무한반복하는 while 문 작성하여 내부에 종료 조건 만들어서 break
+		while(true) {
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			char ch = sc.nextLine().charAt(0);
+			
+			// 4. 값을 더 입력하겠다고 한 경우
+			if(ch == 'y' || ch == 'Y') {
+				
+				// 5. 더 입력받을 개수를 입력받기
+				System.out.print("더 입력하고 싶은 개수 : ");
+				int addSize = sc.nextInt();
+				sc.nextLine(); // 입력버퍼에 남은 개행 문자 제거
+				
+				// 6. 새로 값을 입력받을 배열 생성 --> 기존 배열 크기 + 추가 입력 개수
+				String[] newArr = new String[arr.length + addSize];
+				
+				// 7. 배열 복사(깊은 복사하기) + 새로운 문자열 입력받기
+				for(int i = 0; i < newArr.length; i++) {
+					if(i < arr.length) { // 인덱스의 크기가 기존 배열보다 작을 경우
+						newArr[i] = arr[i]; // 기존 배열 요소 값 복사
+						
+					} else { // 인덱스의 크기가 기존 배열보다 클 경우 새로운 입력 받기
+						System.out.print( (i + 1) + "번째 문자열 : ");
+						newArr[i] = sc.nextLine();
+					}
+				}
+				
+				// 8. 기존 배열 공간을 참조하던 변수 arr에 새로운 배열 공간의 주소 newArr 대입
+				arr = newArr;
+				
+			} else if(ch == 'n' || ch == 'N') { // 값을 더 입력하지 않은 경우
+				break; // while 반복문 종료
+				
+			} else { // 잘못 입력한 경우
+				System.out.println("잘못 입력하셨습니다, 다시 입력해주세요.");
+			}			
+		}
+		
+		// 10. 배열 값 모두 출력
+		System.out.println(Arrays.toString(arr));
 	}
 }

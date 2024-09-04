@@ -7,20 +7,20 @@ public class PracticeRun {
 		
 		PracticeService ps = new PracticeService();
 		
-		// ps.practice1(); O
-		// ps.practice2(); O
-		// ps.practice3(); O
-		// ps.practice4(); O
-		// ps.practice5(); O
-		// ps.practice6(); O
-		// ps.practice7(); O
-		// ps.practice8(); O
-		// ps.practice9(); O
-		// ps.practice10(); O
-		ps.practice11(); // ?
-		// ps.practice12(); // ?
+		// ps.practice1(); 
+		// ps.practice2(); 
+		// ps.practice3(); 
+		// ps.practice4(); 
+		// ps.practice5(); 
+		// ps.practice6(); 
+		// ps.practice7(); 
+		// ps.practice8(); 
+		// ps.practice9(); 
+		// ps.practice10(); 
+		// ps.practice11(); 
+		// ps.practice12(); 
 		// ps.practice13();  
-		// ps.practice14();  
+		ps.practice14();  
 		
 	}
 
