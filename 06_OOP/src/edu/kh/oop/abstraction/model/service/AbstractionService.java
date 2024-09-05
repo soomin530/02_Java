@@ -54,8 +54,8 @@ public class AbstractionService {
 		
 		soomin.setName("우수민");
 		soomin.setGender('여');
-		soomin.setpNo("990530-1234567");
-		soomin.setAddress("강서구 화곡동 어쩌구");
+		soomin.setpNo("123456-1234567");
+		soomin.setAddress("서울시 강서구 어쩌구");
 		soomin.setPhone("010-1234-5678");
 		soomin.setAge(26); 
 		

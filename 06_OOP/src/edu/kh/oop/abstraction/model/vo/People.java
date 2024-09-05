@@ -25,8 +25,49 @@ public class People { // 국민(사람)클래스
 	// [접근제한자] 자료형 변수명;
 	
 	
-	
 	private String name; 
+	private char gender;
+	private String pNo; // "123456-1234567"
+	private String address;
+	private String phone; // "010-1234-1234"
+	private int age;
+	// 국민 모두가 가지고 있는 공통점 아닌 것은 제거
+
+	
+	// 기능 == 행동 == method(메서드)
+	
+	public void tax() {
+		System.out.println("세금을 냅니다...");
+	}
+	
+	public void vote() {
+		System.out.println("투표를 합니다... 꼭 하세요 !");
+	}
+	
+	// 캡슐화에서 사용할 간접 접근 기능 (getter / setter)
+	// [접근제한자] 반환형 메서드명() {}
+	
+	// name 변수의 값을 호출한 쪽으로 돌려보내주는 간접 접근 기능 중 getter
+	
+	// void : 반환할 값이 없다(반환형(자료형)이 없다)
+	public String getName() {
+		return name;
+	}
+	
+	// name 변수에 값을 세팅하는 간접 접근 기능 중 setter
+	public void setName(String name) {
+		// 매개변수 String name
+		// -> String 타입의 데이터를 전달받아 저장하고 있는 변수
+		// ** this : 현재 객체
+		this.name = name;
+	}
+	
+	
+	// alt + shift + s 또는 상단메뉴 Source
+	// -> Generate Getters and Setters...
+	// selectAll -> generate 클릭
+	
+	
 	public char getGender() {
 		return gender;
 	}
@@ -66,45 +107,5 @@ public class People { // 국민(사람)클래스
 	public void setAge(int age) {
 		this.age = age;
 	}
-
-	private char gender;
-	private String pNo; // "123456-1234567"
-	private String address;
-	private String phone; // "010-1234-1234"
-	private int age;
-	// 국민 모두가 가지고 있는 공통점 아닌 것은 제거
-
-	
-	// 기능 == 행동 == method(메서드)
-	
-	public void tax() {
-		System.out.println("세금을 냅니다...");
-	}
-	
-	public void vote() {
-		System.out.println("투표를 합니다... 꼭 하세요 !");
-	}
-	
-	// 캡슐화에서 사용할 간접 접근 기능 (getter / setter)
-	// [접근제한자] 반환형 메서드명() {}
-	
-	// name 변수의 값을 호출한 쪽으로 돌려보내주는 간접 접근 기능 중 getter
-	
-	// void : 반환할 값이 없다(반환형(자료형)이 없다)
-	public String getName() {
-		return name;
-	}
-	
-	// name 변수에 값을 세팅하는 간접 접근 기능 중 setter
-	public void setName(String name) {
-		// 매개변수 String name
-		// -> String 타입의 데이터를 전달받아 저장하고 있는 변수
-		// ** this : 현재 객체
-		this.name = name;
-	}
-	
-	// alt + shift + s 또는 상단메뉴 Source
-	// -> Generate Getters and Setters...
-	// selectAll -> generate 클릭
 	
 }
