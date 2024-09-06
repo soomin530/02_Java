@@ -42,10 +42,10 @@ public class BookService {
 		System.out.println("=================================");
 		
 		System.out.printf("도서명 = %s\n", b1.getTitle());
-		System.out.printf("할인된 가격 = %d\n", (int)(b1.getPrice() * b1.getDiscountRate()));
+		System.out.printf("할인된 가격 = %d원\n", (int)(b1.getPrice() - (b1.getPrice() * b1.getDiscountRate())));
 		
 		System.out.printf("도서명 = %s\n", b2.getTitle());
-		System.out.printf("할인된 가격 = %d\n", (int)(b2.getPrice() * b2.getDiscountRate()));
+		System.out.printf("할인된 가격 = %d원\n", (int)(b2.getPrice() - (b2.getPrice() * b2.getDiscountRate())));
 	}
 
 }
@@ -81,7 +81,7 @@ public class BookService {
  * }
  * 
  *
- * 위 메서드 상세히 해석 :  
+ * 위 메서드 상세히 해석 :  문자열 형식의 
  * 
 
  * 
