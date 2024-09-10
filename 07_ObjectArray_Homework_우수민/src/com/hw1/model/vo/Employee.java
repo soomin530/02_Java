@@ -40,9 +40,9 @@ public class Employee {
 		this.address = address;
 	}
 	
-	public String information() {
+	//public String information() {
 		
-	}
+	//}
 
 
 	public int getEmpNo() {
@@ -143,16 +143,5 @@ public class Employee {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

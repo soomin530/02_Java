@@ -6,14 +6,19 @@ public class Product {
 	private int price;
 	private double tax;
 	
+	// Product의 기본 생성자 및 매개변수 생성자로 Product 객체
+	// 생성시 마다 ProductController 객체 수 카운트를 1 증가
+	
+	
 	public Product() {}
 
 	public Product(int pld, String pName, int price, double tax) {
-		super();
 		this.pld = pld;
 		this.pName = pName;
 		this.price = price;
 		this.tax = tax;
+		
+		ProductController.count++;
 	}
 	
 	

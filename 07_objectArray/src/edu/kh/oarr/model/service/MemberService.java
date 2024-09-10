@@ -48,7 +48,19 @@ public class MemberService {
 			case 1 : System.out.println(signUp()); break;
 			case 2 : System.out.println(login()); break;
 			case 3 : System.out.println(selectMember()); break;
-			case 4 : System.out.println(updateMember()); break;
+			case 4 : 
+				int result = updateMember();
+				
+				if(result  == -1) {
+					System.out.println("로그인 후 이용해주세요");
+				} else if (result == 0) {
+					System.out.println("회원 정보 수정 실패(비밀번호 불일치)");
+				} else {
+					System.out.println("회원 정보가 수정되었습니다");
+				}
+				
+				break;
+				
 			case 5 : searchRegion(); break; 
 			case 0 : System.out.println("프로그램 종료..."); break;
 			default : System.out.println("잘못 입력하셨습니다, 다시 입력하세요 !");
@@ -166,6 +178,7 @@ public class MemberService {
 	
 	// 회원 정보 조회 메서드
 	public String selectMember() {
+		System.out.println("\n===== 회원 정보 조회 =====");
 		
 		// 1) 로그인 여부 확인
 		if(loginMember == null) {
