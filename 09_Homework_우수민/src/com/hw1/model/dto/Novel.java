@@ -26,7 +26,9 @@ public class Novel extends Book{
 
 	@Override
 	public void displayInfo() {
-		System.out.println("[소설]  제목 : " + super.getTitle() + " /  " + "저자 : " + author + " / " + "장르 : " + genre);
+		System.out.printf("[소설]  제목 : %s / 저자 : %s / 장르 :  %s", getTitle(), getAuthor(), genre);
+		//			          상속 받아서 만들어진 자식은 부모의 값을 super 를 붙이지 않아도 받아올 수 있음
+		// 					    ㄴ 하지만 웬만하면 붙여주기 !
 		
 		
 	}
