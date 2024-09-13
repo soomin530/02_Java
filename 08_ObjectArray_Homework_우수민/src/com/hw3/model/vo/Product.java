@@ -1,5 +1,7 @@
 package com.hw3.model.vo;
 
+import com.hw3.controller.ProductController;
+
 public class Product {
 	private int pld;
 	private String pName;
@@ -23,6 +25,7 @@ public class Product {
 	
 	
 	public String information() {
+		return null ;
 		
 	}
 
