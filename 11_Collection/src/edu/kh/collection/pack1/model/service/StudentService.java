@@ -14,7 +14,7 @@ import edu.kh.collection.pack1.model.dto.Student;
 public class StudentService {
 	
 	// java.util.List 인터페이스 : List에 반드시 필요한 필수 기능을 모아둔 인터페이스
-	// * 인터페이스 객체 생성 X, 부모 참조변수 O
+	// * 인터페이스 객체 생성 X, 부모 참조변수 역할 O
 	
 	// java.util.ArrayList : 배열 형태 List (가장 대표적인 List 자식 클래스)
 	
