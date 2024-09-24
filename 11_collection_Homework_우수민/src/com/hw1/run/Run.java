@@ -33,18 +33,8 @@ public class Run {
 		 
 		 // List에서 다섯 객체 중 랜덤으로 하나 뽑기
 		 Random random = new Random();
-		
-		 for(int i = 0; i < 1; i++) {
-			// friendList.add(random.nextInt(5)+1;) // 1 ~ 45 
-			// List<Friend> randomFriend = 
+		 
+		 friendList.get(random.nextInt(friendList.size()) ).pickLeader();
 			 
 		 }
-		 
-		  // System.out.println(friendList[(int)(Math.random() * 5)] + "가 떡잎방범대 대장이다 !"); 
-		  
-		  
-		 // 골목대장이 누군지 출력
-		 System.out.println(friendList);
 	}
-
-}
