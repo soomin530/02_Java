@@ -3,38 +3,31 @@ package com.hw3.model.vo;
 import com.hw3.controller.ProductController;
 
 public class Product {
-	private int pld;
+	
+	private int pId;
 	private String pName;
 	private int price;
 	private double tax;
 	
-	// Product의 기본 생성자 및 매개변수 생성자로 Product 객체
-	// 생성시 마다 ProductController 객체 수 카운트를 1 증가
-	
-	
-	public Product() {}
+	public Product() {
+		ProductController.count++;
+	}
 
-	public Product(int pld, String pName, int price, double tax) {
-		this.pld = pld;
+	public Product(int pId, String pName, int price, double tax) {
+		this.pId = pId;
 		this.pName = pName;
 		this.price = price;
 		this.tax = tax;
 		
 		ProductController.count++;
 	}
-	
-	
-	public String information() {
-		return null ;
-		
+
+	public int getpId() {
+		return pId;
 	}
 
-	public int getPld() {
-		return pld;
-	}
-
-	public void setPld(int pld) {
-		this.pld = pld;
+	public void setpId(int pId) {
+		this.pId = pId;
 	}
 
 	public String getpName() {
@@ -60,5 +53,13 @@ public class Product {
 	public void setTax(double tax) {
 		this.tax = tax;
 	}
-
+	
+	public String information() {
+		return "제품번호 : " + pId + ", 제품명 : " + pName + 
+				", 가격 : " + price + ", 세금 : " + tax; 
+		
+	}
+	
+	
+	
 }

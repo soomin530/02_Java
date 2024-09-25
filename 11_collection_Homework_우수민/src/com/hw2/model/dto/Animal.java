@@ -2,6 +2,7 @@ package com.hw2.model.dto;
 
 public abstract class Animal {
 	
+	// 필드
 	protected String name;
 	
 	// 기본생성자
@@ -14,5 +15,4 @@ public abstract class Animal {
 	}
 	
 	public abstract void sound();
-
 }
