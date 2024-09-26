@@ -55,21 +55,15 @@ public class BookService {
 				switch(menuNum) {
 				case 1 : System.out.println(addBook()); break;
 				case 2 : showBookList(library); break;
-				
 				case 3 : System.out.println(editBook()); break;
-				
 				case 4 : System.out.println(deleteBook()); break;
-				/*
 				case 5 : addFavorite(); break;
 				case 6 : deleteFavorite(); break;
-				*/
-				
 				case 7 : showBookList(favList); break;
-				
 				case 8 : randomBook(); break;
-			
 				case 0 : System.out.println("종료되었습니다."); break;
 				default : System.out.println("메뉴에 있는 번호만 입력하세요!"); break;
+				
 				}
 				
 			} while(menuNum != 0); // menuNum이 0과 같지 않으면 반복
@@ -246,6 +240,70 @@ public class BookService {
 		
 		return "삭제 끝";
 	}
+	
+	/** 즐겨찾기 추가용 메서드
+	 * @return
+	 */
+	public void addFavorite() {
+		System.out.println("======= 즐겨찾기 추가 =======");
+	
+		System.out.print("등록할 도서 번호 입력 : ");
+		int addFavBookNum = sc.nextInt();
+		
+		boolean flag = true;
+		
+		for(Book book : library) {
+			if (book.getBookNum()==addFavBookNum) {
+				flag = false;
+				favList.add(book);
+				System.out.println("등록 성공");
+				break;
+			}
+		}
+		
+		if(flag) System.out.println("일치하는 도서 번호가 없습니다.");
+	}
+	
+	
+	
+	/** 즐겨찾기 삭제용 메서드
+	 * @return
+	 */
+	public void deleteFavorite() {
+		System.out.println("====즐겨찾기 삭제=====");
+		
+		showBookList(favList);
+		
+		System.out.print("삭제할 도서의 번호를 입력하세요 : ");
+		int dtFavBookNum = sc.nextInt();
+		
+		boolean flag = true;
+		
+		for(Book temp : favList) {
+			
+			if(temp.getBookNum() == dtFavBookNum) {
+				int index = favList.indexOf(temp);
+				// int List.indexOf(Object) : List에 일치하는 객체가 있으면 그 객체가 있는 index번호 반환
+				flag = false;
+				
+				System.out.print("정말 삭제하시겠습니까? (Y/N) : ");
+				
+				char answer = sc.next().toUpperCase().charAt(0); // "y" -> "Y" -> 'Y'
+				
+				if(answer == 'Y') {
+					favList.remove(index);
+					System.out.println("삭제 성공");
+					break;
+				} else {
+					System.out.println("삭제를 진행하지 않습니다.");
+				}
+			}
+		}
+		
+		if(flag) System.out.println("찾는 번호가 없습니다.");
+	}
+	
+	
 	
 	/** 추천 도서 뽑기
 	 * 

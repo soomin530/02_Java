@@ -43,7 +43,7 @@ public class Person {
 	
 
 	@Override
-	public String toString() { // 콘솔창에 출력하고 싶은 모양대로 ㄱ↷
+	public String toString() { // 콘솔창에 출력하고 싶은 모양대로 ㄱ
 		return "Person [name=" + name + ", age=" + age + ", gender=" + gender + "]";
 	}
 
