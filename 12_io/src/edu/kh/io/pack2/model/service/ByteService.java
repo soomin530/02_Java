@@ -97,7 +97,7 @@ public class ByteService {
 			// write() 수행 후 시간
 			
 			fos.flush(); // 스트림에 안에 남아있는 모든 데이터를 모두 밀어냄
-			System.out.println("출력 완료!");
+			System.out.println("출력 완료!"); 
 
 			
 		} catch (IOException e) {
