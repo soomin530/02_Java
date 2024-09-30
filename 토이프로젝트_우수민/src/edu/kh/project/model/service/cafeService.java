@@ -3,12 +3,14 @@ package edu.kh.project.model.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import edu.kh.project.model.dto.Cafe;
 /*
- * 카페 메뉴를 조회하여 손님들에게 메뉴 소개 (조회)
- * 메뉴 번호로 주문 받기
- * 메뉴 추가 및 메뉴 변경이 가능하게 한다 (추가, 수정)
- * 판매 부진한 메뉴 삭제 가능하게 한다 (삭제)
+ * 번호를 입력받아 각각 화면 출력
+ * 1. 메뉴 소개 (조회)
+ * 2. 메뉴 번호로 주문 받기
+ * 3. 메뉴 추가 및 메뉴 변경 가능하게 하기 (추가, 수정)
+ * 4. 판매 부진한 메뉴 삭제 가능하게 한다 (삭제)
  * */
 
 public class cafeService {
@@ -55,7 +57,7 @@ public class cafeService {
 					menuNum = sc.nextInt();
 					
 					switch(menuNum) {
-					//case 1 : System.out.println(displayAllMenu()); break;
+					case 1 : displayAllMenu(drink); break;
 					case 2 : myOrder(); break;
 					case 3 : System.out.println(addMenu()); break;
 					case 4 : System.out.println(modifyMenu()); break;
@@ -75,35 +77,61 @@ public class cafeService {
 		}
 	
 		
+		/** 메뉴 조회 O
+		 * @param list
+		 */
 		public void displayAllMenu(List<Cafe> list) {
+			
+			//flag 해서 true 일 때 수민 카페 메뉴 뜨게 하기
+			// false면 메뉴만 뜨게 하기
+			
+			
+			if(true)System.out.println("\n-- 수민 카페 메뉴 --");
 			
 			if(list.isEmpty()) {
 				System.out.println("추가한 음료가 없습니다. 음료를 등록해주세요.");
 				
 			} else {
 				for(Cafe temp : list) {
-					System.out.println("-- 수민 카페 메뉴 --");
-					System.out.println(temp);  
+					System.out.println(temp);
 
 			}
+				System.out.println("\n");
 		}
 	}
 		
+		/**
+		 * 메뉴 주문
+		 */
 		public void myOrder() {
 			System.out.println("\n-- 메뉴 주문 --");
-			System.out.print("주문하실 음료를 선택해주세요. (번호로 입력해주세요!) : ");
 			
-			// 현재 메뉴 같이 보여주기
+			displayAllMenu(drink); 
+			
+			System.out.print("주문하실 음료를 선택해주세요. (번호로 입력해주세요!) : ");
 			int orderDrink = sc.nextInt();
 			
 			boolean flag = true;
 			
 			// for문 안에 if 문으로 flag false시 주문한 메뉴명 + 주문 성공 출력 띄우기
+			for(Cafe cafe : drink) {
+				if(cafe.getMenuNum()==orderDrink) {
+					flag = false;
+					order.add(cafe);
+					System.out.println(cafe.getMenuName() + " 주문 완료 ~!\n");
+					break;
+				}
+			}
+			
 			// 메뉴판에 없는 메뉴번호 입력 시 메뉴판에 있는 메뉴만 입력해주세요 출력
+			if(flag) System.out.println("일치하는 메뉴 번호가 없습니다.");
 			
 		
 		}
 		
+		/** 메뉴 추가 O
+		 * @return
+		 */
 		public String addMenu() {
 			System.out.println("\n-- 메뉴 추가 --");
 			System.out.print("메뉴 번호 : ");
@@ -126,6 +154,9 @@ public class cafeService {
 			
 		}
 		
+		/** 메뉴 변경
+		 * @return
+		 */
 		public String modifyMenu() {
 			// 현재 메뉴판 띄우기
 			return "";
