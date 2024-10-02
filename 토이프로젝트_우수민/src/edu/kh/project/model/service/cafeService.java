@@ -61,7 +61,7 @@ public class cafeService {
 					case 2 : myOrder(); break;
 					case 3 : System.out.println(addMenu()); break;
 					case 4 : System.out.println(modifyMenu()); break;
-					/* case 5 : System.out.println(removeMenu()); break; */
+					case 5 : System.out.println(removeMenu()); break; */
 					case 0 : System.out.println("종료되었습니다."); break;
 					default : System.out.println("메뉴에 있는 번호만 입력해주세요.\n"); break;				
 					
@@ -82,7 +82,7 @@ public class cafeService {
 		 */
 		public void displayAllMenu(List<Cafe> list) {
 			
-			//flag 해서 true 일 때 수민 카페 메뉴 뜨게 하기
+			//flag 해서 true 일 때 -- 수민 카페 메뉴 -- 뜨게 하기
 			// false면 메뉴만 뜨게 하기
 			
 			
@@ -106,7 +106,7 @@ public class cafeService {
 		public void myOrder() {
 			System.out.println("\n-- 메뉴 주문 --");
 			
-			displayAllMenu(drink); 
+			displayAllMenu(drink); // false일 때 -- 수민 카페 메뉴 -- 안 뜨게 하기
 			
 			System.out.print("주문하실 음료를 선택해주세요. (번호로 입력해주세요!) : ");
 			int orderDrink = sc.nextInt();
@@ -158,8 +158,90 @@ public class cafeService {
 		 * @return
 		 */
 		public String modifyMenu() {
-			// 현재 메뉴판 띄우기
-			return "";
+		
+			displayAllMenu(drink); // false일 때 -- 수민 카페 메뉴 -- 안 뜨게 하기
 			
+			System.out.println("\n-- 메뉴 변경 --");
+			
+			int editMenu = 0;
+			
+			System.out.print("수정할 메뉴 번호를 입력해주세요 : ");
+			int menuNum = sc.nextInt();
+			
+			boolean flag = true;
+			
+			for(Cafe temp : drink) {
+				
+				if(temp.getMenuNum() == menuNum) {
+					flag = false;
+					
+					System.out.println("\n어떤 정보를 수정하시겠습니까?\n");
+					System.out.println("1. 메뉴명");
+					System.out.println("2. 가격");
+					System.out.println("3. 주재료");
+					System.out.println("0. 수정 종료");
+					System.out.print("\n수정하고 싶은 정보 번호를 입력해주세요 : ");
+					
+					editMenu = sc.nextInt();
+					
+					// 수정 하나 끝나고 종료되지 않고 추가로 수정할 번호를 받을 수 있게 하기
+					switch (editMenu) {
+					case 1: System.out.println("\n>> 메뉴명 수정<<");
+							System.out.print("수정할 메뉴명을 입력해주세요 : ");
+							String menuName = sc.next(); 
+							temp.setMenuName(menuName);
+							break;
+							
+					case 2: System.out.println("\n>> 가격 수정<<");
+							System.out.print("수정할 가격을 입력해주세요 : ");
+							int price = sc.nextInt();
+							temp.setPrice(price);
+							break;
+					
+					case 3: System.out.println("\n>> 주재료 수정<<");
+							System.out.print("수정할 주재료를 입력해주세요 : ");
+							String mainIngredients = sc.next(); 
+							temp.setMainIngredients(mainIngredients);
+							break;
+					
+					case 0: System.out.println("메뉴 수정을 종료합니다.");break;
+					default : System.out.println("메뉴에 있는 번호만 입력해주세요.");
+					}
+				}
+			}
+			
+			if(flag) {
+				return "일치하는 메뉴 번호가 없습니다.";
+			}
+			return "수정 완료 ~";
+		}
+		
+		public String removeMenu() {
+			System.out.println("\n-- 메뉴 삭제 --");
+			
+			displayAllMenu(drink); // false일 때 -- 수민 카페 메뉴 -- 안 뜨게 하기
+			
+			System.out.print("삭제할 메뉴의 번호를 입력해주세요 : ");
+			int delet = sc.nextInt();
+			
+			for(Cafe temp : drink) {
+				
+				if(temp.getMenuNum() == delet) {
+					int index = drink.indexOf(temp);
+					
+					System.out.println("정말 삭제하시겠습니까? (Y/N) : ");
+					
+					char answer = sc.next().toUpperCase().charAt(0);
+					
+					if(answer == 'Y') {
+						drink.remove(index);
+						break;
+					} else {
+						return "취소";
+					}
+				}
+			}
+			
+			return "메뉴가 삭제되었습니다.";
 		}
 }
